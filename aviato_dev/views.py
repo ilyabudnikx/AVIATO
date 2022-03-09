@@ -2,6 +2,7 @@ from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render, redirect
 from .models import *
 # Create your views here.
+menu = ["Главная","Подробнее", "Бронирование", "Управление", "Справка"]
 def MAINPAGE(request):
     return render(request, 'aviato/index.html', {'title': 'Билеты и авиановости - Aviato'})
 
