@@ -13,8 +13,11 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
+from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path
+
+from aviato_settings import settings
 from  aviato_dev.views import *
 from django.urls import path, include
 urlpatterns = [
@@ -22,3 +25,6 @@ urlpatterns = [
     path('', include('aviato_dev.urls')),
 
 ]
+if settings.DEBUG: # Для работы миграций с медиа-файлами. !!!ТОЛЬКО ПРИ ДЕБАГЕ!!!
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+handler404 = pageNotFound

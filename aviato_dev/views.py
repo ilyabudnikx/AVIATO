@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render
 
 # Create your views here.
@@ -10,3 +10,13 @@ def ALLTICKETSPAGE(request):
 
 def TICKET(request, ticketsid):
     return HttpResponse(f"TICKET PAGE <p>{ticketsid}</p>")
+
+
+
+
+
+
+
+#!!! Ошибки
+def pageNotFound(request, exception):
+    return HttpResponseNotFound('Страница не найдена')
