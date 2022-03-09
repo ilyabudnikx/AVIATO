@@ -1,12 +1,13 @@
 from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render, redirect
-
+from .models import *
 # Create your views here.
 def MAINPAGE(request):
-    return HttpResponse("<H1>MAIN PAGE AVIATO</H1>")
+    return render(request, 'aviato/index.html', {'title': 'Билеты и авиановости - Aviato'})
 
 def ALLTICKETSPAGE(request):
-    return HttpResponse("TICKETS PAGE")
+    posts = User.objects.all()
+    return render(request, 'aviato/all_tickets_page.html', {'title': 'Купить билеты - Aviato', 'posts': posts})
 
 def TICKET(request, ticketsid):
     return HttpResponse(f"TICKET PAGE <p>{ticketsid}</p>")
