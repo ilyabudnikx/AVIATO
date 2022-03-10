@@ -9,4 +9,7 @@ class User(models.Model):
 
 
 class News(models.Model):
-    pass
+    title = models.CharField(max_length=256)
+    content = models.TextField()
+    photo = models.ImageField(upload_to="photos/%Y/%m/%d/")
+    time_create = models.DateTimeField(auto_now_add=True)

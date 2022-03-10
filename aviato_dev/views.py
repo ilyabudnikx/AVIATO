@@ -4,7 +4,8 @@ from .models import *
 # Create your views here.
 menu = ["Главная","Подробнее", "Бронирование", "Управление", "Справка"]
 def MAINPAGE(request):
-    return render(request, 'aviato/index.html', {'title': 'Билеты и авиановости - Aviato'})
+    news = News.objects.all()
+    return render(request, 'aviato/index.html', {'title': 'Билеты и авиановости - Aviato', 'news': news})
 
 def ALLTICKETSPAGE(request):
     posts = User.objects.all()
@@ -17,8 +18,9 @@ def ABOUT(requset):
     return render(requset, 'aviato/about.html', {'title': 'Подробнее'})
 
 def ADMINPANEL(request):
+    news = News.objects.all()
     users = User.objects.all()
-    return render(request, 'aviato/all_users.html', {'title': 'Все пользователи', 'users': users})
+    return render(request, 'aviato/all_users.html', {'title': 'Все пользователи', 'users': users, 'news': news})
 
 
 

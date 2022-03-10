@@ -22,5 +22,25 @@
    {% endfor %}
    </tbody>
    </table>
-
+        <p class="container fs-1 text-center">News Table</p>
+   <table class = 'container table'>
+   <thead>
+        <tr>
+            <th>Num.</th>
+            <th>Title</th>
+            <th>Content</th>
+            <th>Data</th>
+        </tr>
+   </thead>
+   <tbody>
+   {% for news in news%}
+   <tr>
+       <td>{{ news.id }}</td>
+       <td >{{ news.title }}</td>
+       <td >{{ news.content }}</td>
+       <td >{{ news.time_create }}</td>
+   </tr>
+   {% endfor %}
+   </tbody>
+   </table>
 {% endblock %}
