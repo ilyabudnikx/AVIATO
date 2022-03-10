@@ -1,0 +1,26 @@
+{% extends 'aviato/base.html' %}
+{% block content %}
+
+    <p class="container fs-1 text-center">Users Table</p>
+   <table class = 'container table'>
+   <thead>
+        <tr>
+            <th>Num.</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Data</th>
+        </tr>
+   </thead>
+   <tbody>
+   {% for m in users%}
+   <tr>
+       <td>{{ m.id }}</td>
+       <td >{{ m.username }}</td>
+       <td >{{ m.password }}</td>
+       <td >{{ m.time_create_account }}</td>
+   </tr>
+   {% endfor %}
+   </tbody>
+   </table>
+
+{% endblock %}

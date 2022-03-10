@@ -6,3 +6,7 @@ class User(models.Model):
     password = models.CharField(max_length=256)
     time_create_account = models.DateTimeField(auto_now_add=True)
     avatar = models.ImageField(upload_to="photos/%Y/%m/%d/")
+
+
+class News(models.Model):
+    pass

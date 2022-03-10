@@ -13,8 +13,12 @@ def ALLTICKETSPAGE(request):
 def TICKET(request, ticketsid):
     return HttpResponse(f"TICKET PAGE <p>{ticketsid}</p>")
 
+def ABOUT(requset):
+    return render(requset, 'aviato/about.html', {'title': 'Подробнее'})
 
-
+def ADMINPANEL(request):
+    users = User.objects.all()
+    return render(request, 'aviato/all_users.html', {'title': 'Все пользователи', 'users': users})
 
 
 
