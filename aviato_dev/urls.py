@@ -8,5 +8,6 @@ urlpatterns = [
     path('tick/<int:ticketsid>/', TICKET, name = 'ticket'), # Подшаблонная страница для каждого определенного рейса
     path('about', ABOUT, name = 'about'),
     path('adminpanel', ADMINPANEL, name = 'adminpanel'),
-    path('news/<int:news_id>/', SHOWNEWS, name = 'news')
+    path('news/<int:news_id>/', SHOWNEWS, name = 'news'),
+    path('category/<int:cat_id>/', SHOWCATEGORY, name = 'category')
 ]

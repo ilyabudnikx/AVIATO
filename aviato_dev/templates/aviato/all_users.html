@@ -43,4 +43,22 @@
    {% endfor %}
    </tbody>
    </table>
+
+
+      <table class = 'container table'>
+   <thead>
+        <tr>
+            <th>Num.</th>
+            <th>Name</th>
+        </tr>
+   </thead>
+   <tbody>
+   {% for cat in cats%}
+   <tr>
+       <td>{{ cat.id }}</td>
+       <td >{{ cat.name }}</td>
+   </tr>
+   {% endfor %}
+   </tbody>
+   </table>
 {% endblock %}

@@ -7,7 +7,11 @@ from .models import *
 
 def MAINPAGE(request):
     news = News.objects.all()
-    return render(request, 'aviato/index.html', {'title': 'Билеты и авиановости - Aviato', 'news': news})
+    cats = Category.objects.all()
+    return render(request, 'aviato/index.html', {'title': 'Билеты и авиановости - Aviato',
+                                                 'news': news,
+                                                 'cats': cats,
+                                                     'cat_selected': 0})
 
 def ALLTICKETSPAGE(request):
     posts = User.objects.all()
@@ -21,12 +25,19 @@ def ABOUT(requset):
 def ADMINPANEL(request):
     news = News.objects.all()
     users = User.objects.all()
-    return render(request, 'aviato/all_users.html', {'title': 'Все пользователи', 'users': users, 'news': news})
+    cats = Category.objects.all()
+    return render(request, 'aviato/all_users.html', {'title': 'Все пользователи',
+                                                     'users': users,
+                                                     'news': news,
+                                                     'cats': cats,
+                                                     'cat_selected': 0})
 
 def SHOWNEWS(request, news_id):
     news = News.objects.all()
     return render(request, 'aviato/newspage.html', {'news': news})
 
+def SHOWCATEGORY(request, cat_id):
+    return HttpResponse(f"{cat_id}")
 
 
 
