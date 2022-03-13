@@ -18,11 +18,12 @@ class News(models.Model):
     time_create = models.DateTimeField(auto_now_add=True)
     cat = models.ForeignKey('Category', on_delete=models.PROTECT, null = True)
     is_published = models.BooleanField(default=True)
+    slug = models.SlugField(max_length=256, unique=True, db_index=True, verbose_name="URL")
     def __str__(self):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('news', kwargs={'news_id': self.pk})
+        return reverse('news', kwargs={'news_slug': self.slug})
 
     class Meta:
         verbose_name = "Новости"
@@ -31,6 +32,8 @@ class News(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=100, db_index=True)
+    slug = models.SlugField(max_length=256, unique=True, db_index=True, verbose_name="URL")
+
 
     def __str__(self):
         return self.name

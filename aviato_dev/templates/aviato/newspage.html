@@ -2,19 +2,18 @@
 {% block content %}
 
 <main content="container">
-    {% for n in news %}
     <div class="col-md-8 container">
       <h3 class="pb-4 mb-4 fst-italic border-bottom">
         <!-- СУКА КАК СДЕЛАТЬ ОТДЕЛЬНУЮ СТРАНИЦУ -->
       </h3>
 
       <article class="blog-post">
-        <h2 class="blog-post-title">{{ n.title}}</h2>
+        <h2 class="blog-post-title">{{ news.title}}</h2>
         <p class="blog-post-meta">January 1, 2021 by <a href="#"></a></p>
-        <img src="{{ n.photo.url }}">
-          <p class="blog-post-meta">{{ n.content }} <a href="#"></a></p>
+        <img src="{{ news.photo.url }}">
+          <p class="blog-post-meta">{{ news.content }} <a href="#"></a></p>
+          <p class="blog-post-meta">{{ news.cat }} <a href="#"></a></p>
     </div>
 </main>
 
-{% endfor %}
 {% endblock %}

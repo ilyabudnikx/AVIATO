@@ -1,5 +1,5 @@
 from django.http import HttpResponse, HttpResponseNotFound
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 
 from .models import *
 # Create your views here.
@@ -32,9 +32,18 @@ def ADMINPANEL(request):
                                                      'cats': cats,
                                                      'cat_selected': 0})
 
-def SHOWNEWS(request, news_id):
-    news = News.objects.all()
-    return render(request, 'aviato/newspage.html', {'news': news})
+def SHOWNEWS(request, news_slug):
+    news = get_object_or_404(News, slug=news_slug)
+
+    context = {
+        'news': news,
+        'title': news.title,
+        'photo': news.photo,
+        'content': news.content,
+        'cat': news.cat,
+    }
+
+    return render(request, 'aviato/newspage.html', context=context)
 
 def SHOWCATEGORY(request, cat_id):
     return HttpResponse(f"{cat_id}")
