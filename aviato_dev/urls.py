@@ -9,5 +9,6 @@ urlpatterns = [
     path('about', ABOUT, name = 'about'),
     path('adminpanel', ADMINPANEL, name = 'adminpanel'),
     path('news/<slug:news_slug>/', SHOWNEWS, name = 'news'),
-    path('category/<int:cat_id>/', SHOWCATEGORY, name = 'category')
+    path('category/<int:cat_id>/', SHOWCATEGORY, name = 'category'),
+    path('addnews', ADDNEWS, name = 'addnews')
 ]

@@ -50,6 +50,11 @@ def SHOWCATEGORY(request, cat_id):
 
 
 
+def ADDNEWS(request):
+    return render(request, 'aviato/addnews.html', {'title': 'Добавление новости'})
+
+
+
 #!!! Ошибки
 def pageNotFound(request, exception):
     return HttpResponseNotFound('Страница не найдена')
